@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
-  def new
+  def show
+    @user = current_user
   end
 end

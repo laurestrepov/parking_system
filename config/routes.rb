@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'users#show'
-  #root to: "home#index"
+  root 'users#show' #root to: "home#index"
 
-  
+
 
   resources :users do
     resources :vehicles
