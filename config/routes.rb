@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'users#show'
-  #root to: "home#index"
+  root 'users#show' #root to: "home#index"
 
-  
+
 
   resources :users do
     resources :vehicles
@@ -12,13 +11,13 @@ Rails.application.routes.draw do
     resources :slots
   end
 
-#  resources :slots do
-#    resousrces :park_records
-#  end
+  resources :slots do
+    resources :park_records
+  end
 
-#  resousrces :vehicles do
-#    resources :park_records
-#  end
+  resources :vehicles do
+    resources :park_records
+  end
 
 #  resources :photos
   # The priority is based upon order of creation: first created -> highest priority.
