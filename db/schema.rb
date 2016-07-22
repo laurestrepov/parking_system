@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722025042) do
+ActiveRecord::Schema.define(version: 20160722034232) do
 
   create_table "locations", force: :cascade do |t|
     t.float    "location_latitude"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20160722025042) do
     t.string   "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.float    "max_slots"
+    t.string   "address"
   end
 
   create_table "park_records", force: :cascade do |t|
@@ -28,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160722025042) do
     t.string   "comments"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.date     "entry_date"
   end
 
   add_index "park_records", ["slot_id"], name: "index_park_records_on_slot_id"
