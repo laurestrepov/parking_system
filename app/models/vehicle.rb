@@ -6,4 +6,5 @@ class Vehicle < ActiveRecord::Base
   validates :model, presence: true
   validates :year, presence: true
   validates :vin, presence: true
+  
 end

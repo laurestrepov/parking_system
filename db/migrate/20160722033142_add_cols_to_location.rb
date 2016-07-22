@@ -3,4 +3,5 @@ class AddColsToLocation < ActiveRecord::Migration
     add_column :locations, :max_slots, :float
     add_column :locations, :address, :string
   end
+  
 end
