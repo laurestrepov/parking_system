@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
     message: "Sólo se permiten letras" }
     #validates_timeliness :birthdate
     validates_date :birthdate, :on_or_before => lambda { Date.current }
+    validates :email, presence: true, uniqueness: true, format:  /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 end
