@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719005328) do
+ActiveRecord::Schema.define(version: 20160722025042) do
 
   create_table "locations", force: :cascade do |t|
     t.float    "location_latitude"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160719005328) do
     t.string   "last_sign_in_ip"
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "vehicles", force: :cascade do |t|
