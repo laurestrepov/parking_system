@@ -6,11 +6,8 @@ class VehiclesController < ApplicationController
 
   def index
     #@user = User.find(params[:user_id])
-<<<<<<< HEAD
-    @vehicles = current_user.vehicles#@user.vehicles
-=======
+
     @vehicles = current_user.vehicles #@user.vehicles#
->>>>>>> heroku
     flash[:error] = 'No vehicles registered.' if @vehicles.empty?
   end
 
