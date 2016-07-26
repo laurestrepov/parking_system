@@ -4,6 +4,12 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.new #vehículo vacío que se llenará desde el form
   end
 
+  def index
+    @user = User.find(params[:user_id])
+    @vehicles = @user.vehicles
+    flash[:error] = 'No vehicles registered.' if @vehicles.empty?
+  end
+
   def create #recibe el POST del formulario
     @vehicle = Vehicle.new(vehicle_params) #pasarán al initialize de cada vehículo
     @vehicle.user_id = current_user.id

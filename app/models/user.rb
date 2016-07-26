@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :vehicles
-    validates :first_name, presence: true, format:{ with: /\A[A-Z]+\z/,
+    validates :first_name, presence: true, format:{ with: /\A[a-z]+\Z/,
     message: "Sólo se permiten letras" }
-    validates :last_name, presence: true, format:{ with: /\A[A-Z]+\z/,
+    validates :last_name, presence: true, format:{ with: /\A[a-z]+\Z/,
     message: "Sólo se permiten letras" }
     #validates_timeliness :birthdate
     validates_date :birthdate, :on_or_before => lambda { Date.current }
