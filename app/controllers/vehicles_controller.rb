@@ -5,8 +5,8 @@ class VehiclesController < ApplicationController
   end
 
   def index
-    @user = User.find(params[:user_id])
-    @vehicles = @user.vehicles
+    #@user = User.find(params[:user_id])
+    @vehicles = current_user.vehicles#@user.vehicles
     flash[:error] = 'No vehicles registered.' if @vehicles.empty?
   end
 
