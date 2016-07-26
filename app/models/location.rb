@@ -1,5 +1,8 @@
 class Location < ActiveRecord::Base
   has_many :slots
-  validates :latitude, presence: true, numericality: true
-  validates :longitude, presence: true, numericality: true
+  validates :address, presence: true
+
+  after_validation :geocode, if: ->(obj) { obj.address.present? && obj.address_changed? }
+  geocoded_by :address
+  reverse_geocoded_by :latitude, :longitude
 end
