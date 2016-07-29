@@ -1,0 +1,2 @@
+class VehicleMailer < ApplicationMailer
+end
