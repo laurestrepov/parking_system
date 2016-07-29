@@ -16,6 +16,7 @@ class VehiclesController < ApplicationController
     @vehicle.user_id = current_user.id
     if @vehicle.save #Si se guarda el vehiculo
       flash[:success] = 'Vehicle registered successfully.'
+      VehicleMailer.new_vehicle_email(current_user, @vehicle).deliver_now
       redirect_to user_vehicles_path(current_user)
     else
       flash[:error] = @vehicle.errors.full_messages.join(',')
