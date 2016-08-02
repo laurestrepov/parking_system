@@ -6,6 +6,7 @@
       <th>                Model              </th>
       <th>                VIN              </th>
       <th>                Year              </th>
+      <th>                Action            </th>
     </thead>
     <tbody>
       <% @vehicles.each do |vehicle|%>
@@ -13,8 +14,24 @@
           <td><%= vehicle.model %></td>
           <td><%= vehicle.vin %></td>
           <td><%= vehicle.year %></td>
+          <td>
+            <div class="row">
+              <%= link_to "Edit",
+                        edit_user_vehicle_path(current_user, vehicle),
+                        class: 'btn btn-default' %>
+              <%= link_to "Delete",
+                  user_vehicle_path(current_user, vehicle), method: 'delete',
+                  class: 'btn btn-danger',
+                  data: {confirm: "Are you sure?"} %>
+            </div>
+          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+</div>
+<div class="row">
+  <%= link_to "Add vehicle",
+  new_vehicle_path,
+  class: 'btn btn-default btn-sm'%>
 </div>

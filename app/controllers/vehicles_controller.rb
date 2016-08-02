@@ -24,6 +24,31 @@ class VehiclesController < ApplicationController
     end
   end
 
+  def edit
+    @vehicle = Vehicle.by_id(params[:id]).by_user(current_user.id).first
+  end
+
+  def update
+    @vehicle = Vehicle.by_id(params[:id]).by_user(current_user.id).first
+    if @vehicle.update_attributes(vehicle_params)
+      flash[:success] = 'Vehicle updated successfully.'
+      redirect_to user_vehicles_path(current_user)
+    else
+      flash[:error] = @vehicle.errors.full_messages.join(',')
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @vehicle = Vehicle.by_id(params[:id]).by_user(current_user.id).first
+    if @vehicle.destroy
+      flash[:success] = 'Vehicle deleted successfully.'
+      redirect_to user_vehicles_path(current_user)
+    else
+      flash[:error] = @vehicle.errors.full_messages.join(',')
+      render 'index'
+    end
+  end
 
   #Todo controlador debe tener: objeto_params
   def vehicle_params
