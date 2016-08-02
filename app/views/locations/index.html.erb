@@ -7,6 +7,7 @@
     <th>                Address              </th>
     <th>                Map              </th>
     <th>                # Slots              </th>
+    <th>                Actions             </th>
     </thead>
     <tbody>
       <% @locations.each do |location|%>
@@ -20,8 +21,24 @@
             </td>
           <%end%>
         <td><%= location.max_slots %> </td>
+        <td>
+          <div class="row">
+            <%= link_to "Edit",
+                      edit_location_path(location),
+                      class: 'btn btn-default' %>
+            <%= link_to "Delete",
+                location_path(location), method: 'delete',
+                class: 'btn btn-danger',
+                data: {confirm: "Are you sure?"} %>
+          </div>
+        </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+</div>
+<div class="row">
+  <%= link_to "Add location",
+  new_location_path,
+  class: 'btn btn-default btn-md'%>
 </div>
