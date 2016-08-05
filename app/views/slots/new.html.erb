@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-2">
+    <%= render partial: "layouts/user_menu" %>
+  </div>
+  <div class="col-md-10">
+    <h3 class="text-center"> Add slots for <%= @location.name %></h3>
+  </div>
+</div>
+<div class="row">
+  <%= form_tag location_slots_path(@location), method: 'post' do %>
+      <div class="row">
+        <%= label_tag :slots_to_create %>
+        <%= select_tag :slots, options_for_select((1..@location.max_slots).step(1)), class:'form-control', required: true%>
+      </div>
+      <div class="form-group" style="padding-top: 10px">
+        <%= submit_tag "Create Slots", class: 'btn btn-default'%>
+        <%= link_to "Cancel", location_slots_path(@location),
+            class: 'btn btn-default'%>
+      </div>
+    <% end %>
+</div>

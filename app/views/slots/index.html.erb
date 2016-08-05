@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-2">
+    <%= render partial: "layouts/user_menu" %>
+  </div>
+  <div class="col-md-10">
+    <h1> Slots at <%= @location.name %></h1>
+  </div>
+</div>
+<div class="row">
+</div>
+<div class="row">
+  <%= link_to "Add slots", new_location_slot_path,
+  class: 'btn btn-default btn-md'%>
+</div>

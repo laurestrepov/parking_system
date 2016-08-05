@@ -1,4 +1,11 @@
-<h1> Location </h1>
+<div class="row">
+  <div class="col-md-2">
+    <%= render partial: "layouts/user_menu" %>
+  </div>
+  <div class="col-md-10">
+    <h1> Locations </h1>
+  </div>
+</div>
 <div class="table-striped table-responsive">
   <table class="table">
     <thead>
@@ -20,7 +27,7 @@
               <%= image_tag "http://maps.google.com/maps/api/staticmap?size=150x150&sensor=false&zoom=14&markers=#{location.latitude}%2C#{location.longitude}" %>
             </td>
           <%end%>
-        <td><%= location.max_slots %> </td>
+        <td><%= link_to location.max_slots, location_slots_path(location) %> </td>                      
         <td>
           <div class="row">
             <%= link_to "Edit",
