@@ -27,7 +27,7 @@
               <%= image_tag "http://maps.google.com/maps/api/staticmap?size=150x150&sensor=false&zoom=14&markers=#{location.latitude}%2C#{location.longitude}" %>
             </td>
           <%end%>
-        <td><%= link_to location.max_slots, location_slots_path(location) %> </td>                      
+        <td><%= link_to location.slots.count, location_slots_path(location) %> </td>                      
         <td>
           <div class="row">
             <%= link_to "Edit",
