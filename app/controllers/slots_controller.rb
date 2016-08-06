@@ -33,7 +33,6 @@ class SlotsController < ApplicationController
     end
   end
 
-
   def slot_params
     params.require(:slot).permit(:location_id, :id)
   end

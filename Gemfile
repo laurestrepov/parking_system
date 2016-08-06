@@ -39,8 +39,13 @@ gem 'devise'
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'shoulda'
+  gem 'factory_girl_rails'
+  gem 'capybara', '~> 2.4.4'
+#  gem 'capybara-webkit'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do
@@ -54,4 +59,5 @@ end
 group :production do
   gem 'pg', '0.17.1'
   gem 'rails_12factor', '0.0.2'
+
 end
