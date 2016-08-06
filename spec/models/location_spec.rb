@@ -27,7 +27,7 @@ RSpec.describe Location, type: :model do
       end
     end
   end
-
+  
   describe 'validations' do
     context 'when address is not present' do
       let(:location) { Location.new(address: nil) }
